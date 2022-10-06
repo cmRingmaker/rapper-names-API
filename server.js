@@ -5,7 +5,7 @@ const PORT = 8000
 
 app.use(cors())
 
-const rappers = {
+let rappers = {
     '21 savage': {
         'age': 29,
         'birthName': 'Sheyaa Bin Abraham-Joseph',
@@ -32,10 +32,10 @@ app.get('/api/:name', (req, res) => {
     const rapperName = req.params.name.toLowerCase()
     // using bracket notations instead of .notations so we can have whitespice
     // if our users search for a rapper in the API respond with their name, otherwise respond with Dylan
-    if ( rappers[rapperName] ) {
-        res.json( rappers[rapperName] )
+    if (rappers[rapperName]) {
+        res.json(rappers[rapperName])
     } else {
-        res.json( rappers['dylan'] )
+        res.json(rappers['dylan'])
     }
 })
 
