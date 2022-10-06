@@ -14,7 +14,7 @@ const rappers = {
         'birthLocation': 'Chicago, Illinois'
     },
     'dylan': {
-        'age': 29,
+        'age': 'Dylan',
         'birthName': 'Dylan',
         'birthLocation': 'Dylan'
     }
@@ -24,13 +24,13 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:rapperName', (req, res) => {
+app.get('/api/:name', (req, res) => {
     // make a request, pull parameters off an object, then specify rapperName parameter, then store it in a var
-    const rappersName = req.params.rapperName.toLowerCase()
+    const rapperName = req.params.name.toLowerCase()
     // using bracket notations instead of .notations so we can have whitespice
     // if our users search for a rapper in the API respond with their name, otherwise respond with Dylan
-    if ( rappers[rappersName] ) {
-        res.json( rappers[rappersName] )
+    if ( rappers[rapperName] ) {
+        res.json( rappers[rapperName] )
     } else {
         res.json( rappers['dylan'] )
     }
