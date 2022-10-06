@@ -4,6 +4,7 @@ const cors = require('cors')
 const PORT = 8000
 
 app.use(cors())
+app.use(express.static("js")) // use the js folder in our file structure so our script in html knows to point to it
 
 let rappers = {
     '21 savage': {
